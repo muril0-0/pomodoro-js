@@ -1,27 +1,32 @@
 window.addEventListener("load", () => {
-  const workDisplay = document.querySelector(".work-display");
-  const workTime = document.querySelector(".work-time");
+  const focusDisplay = document.querySelector(".focus-display");
+  const relaxDisplay = document.querySelector(".relax-display");
+  const focusTime = document.querySelector(".focus-time");
+  const relaxTime = document.querySelector(".relax-time");
   const upButton = document.querySelector(".up");
   const downButton = document.querySelector(".down");
   const playButton = document.querySelector(".play");
   const pauseButton = document.querySelector(".pause");
   const stopButton = document.querySelector(".stop");
-  let defaultTime = 25;
+
+  const defaultFocus = 25 * 60;
+  const defaultRelax = 5 * 60;
+  let newFocus = defaultFocus;
+  let newRelax = defaultRelax;
   let paused = true;
 
-  workTime.value = defaultTime;
-  workDisplay.value = workTime.value;
+  focusDisplay.value = "--:--";
+  relaxDisplay.value = "--:--";
+  focusTime.value = `${Math.floor(newFocus / 60)}`;
 
   upButton.addEventListener("click", () => {
-    defaultTime++;
-    workTime.value = defaultTime;
-    workDisplay.value = workTime.value;
+    newFocus = newFocus + 60;
+    focusTime.value = `${Math.floor(newFocus / 60)}`;
   });
 
   downButton.addEventListener("click", () => {
-    defaultTime--;
-    workTime.value = defaultTime;
-    workDisplay.value = workTime.value;
+    newFocus = newFocus - 60;
+    focusTime.value = `${Math.floor(newFocus / 60)}`;
   });
 
   playButton.addEventListener("click", () => {
@@ -39,7 +44,10 @@ window.addEventListener("load", () => {
   //Logic
   const initiate = setInterval(() => {
     if (!paused) {
-      workDisplay.value--;
+      newFocus--;
+      focusDisplay.value = `${Math.floor(newFocus / 60)}:${(
+        "00" + Math.floor(newFocus % 60)
+      ).slice(-2)}`;
     }
   }, 1000);
   return () => {
@@ -56,7 +64,8 @@ window.addEventListener("load", () => {
 
   function stop() {
     paused = true;
-    workDisplay.value = 25;
-    workTime.value = 25;
+    newFocus = defaultFocus;
+    focusDisplay.value = "--:--";
+    relaxDisplay.value = "--:--";
   }
 });
