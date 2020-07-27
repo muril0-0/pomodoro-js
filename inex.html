@@ -8,27 +8,41 @@
   </head>
   <body>
     <div class="container">
-      <div class="top-bar"></div>
+      <div class="top-bar">
+        <img src="./assets/logo.png" alt="Pomodoro Logo">
+      </div>
       <div class="content">
         <div class="display">
-          <input class="focus-display"></input>
-          <input class="relax-display"></input>
+          <div class="display-counters">
+            <input class="focus-display"></input>
+            <input class="relax-display"></input>
+          </div>
           <div class="display-controls">
-            <button class="play">Play</button>
-            <button class="pause">Pause</button>
-            <button class="stop">Stop</button>
+            <button class="pause"><img src="./assets/pause.png" alt="Pomodoro Pause Button"></button>
+            <button class="play"><img src="./assets/play.png" alt="Pomodoro Play Button"></button>
+            <button class="stop"><img src="./assets/stop.png" alt="Pomodoro Stop Button"></button>
           </div>
         </div>
         <div class="controls">
           <div class="focus-controls">
-            <button class="down">-</button>
-            <input class="focus-time"></input>
-            <button class="up">+</button>
+            <div class="focus-buttons">
+              <button class="down">-</button>
+              <input class="focus-time"></input>
+              <button class="up">+</button>
+            </div>
+            <div class="focus-name">
+              <p>Focus Time</p>
+            </div>
           </div>
           <div class="relax-controls">
-            <button class="down">-</button>
-            <input class="relax-time"></input>
-            <button class="up">+</button>
+            <div class="relax-buttons">
+              <button class="down">-</button>
+              <input class="relax-time"></input>
+              <button class="up">+</button>
+            </div>
+            <div class="relax-name">
+              <p>Relax Time</p>
+            </div>
           </div>
         </div>
       </div>

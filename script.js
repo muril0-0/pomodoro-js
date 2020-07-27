@@ -17,7 +17,8 @@ window.addEventListener("load", () => {
 
   focusDisplay.value = "--:--";
   relaxDisplay.value = "--:--";
-  focusTime.value = `${Math.floor(newFocus / 60)}`;
+  focusTime.value = `${("00" + Math.floor(newFocus / 60)).slice(-2)}`;
+  relaxTime.value = `${("00" + Math.floor(newRelax / 60)).slice(-2)}`;
 
   upButton.addEventListener("click", () => {
     newFocus = newFocus + 60;
