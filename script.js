@@ -1,12 +1,15 @@
 window.addEventListener("load", () => {
   const focusDisplay = document.querySelector(".focus-display");
   const relaxDisplay = document.querySelector(".relax-display");
+
   const focusTime = document.querySelector(".focus-time");
   const relaxTime = document.querySelector(".relax-time");
+
   const upFocus = document.querySelector(".up-focus");
   const downFocus = document.querySelector(".down-focus");
   const upRelax = document.querySelector(".up-relax");
   const downRelax = document.querySelector(".down-relax");
+
   const playButton = document.querySelector(".play");
   const pauseButton = document.querySelector(".pause");
   const stopButton = document.querySelector(".stop");
@@ -19,6 +22,7 @@ window.addEventListener("load", () => {
 
   focusDisplay.value = "--:--";
   relaxDisplay.value = "--:--";
+
   focusTime.value = `${("00" + Math.floor(newFocus / 60)).slice(-2)}`;
   relaxTime.value = `${("00" + Math.floor(newRelax / 60)).slice(-2)}`;
 
@@ -115,5 +119,3 @@ window.addEventListener("load", () => {
     relaxDisplay.value = "--:--";
   }
 });
-
-function startFocus() {}
